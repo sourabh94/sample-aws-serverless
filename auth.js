@@ -11,17 +11,31 @@ const {
 input={
     UserPoolId:"us-east-1_wNF9zKadm"
 };
-config={
 
-}
 
 const client = new CognitoIdentityProviderClient({ region: "us-east-1" });
 
 const login = async () => {
-
-    const command = new ListUsersCommand(input);
-    const response = await client.send(command);
-    return response;    
+    const email = "patil.sourabh4991@gmail.com";
+    const password = "password";
+    const user_pool_id = "us-east-1_wNF9zKadm";
+    const client_id = "76vm8i7d7fgu6noeunl7jkj2k9";
+    
+      
+      const params = {
+        AuthFlow: "ADMIN_NO_SRP_AUTH",
+        UserPoolId: user_pool_id,
+        ClientId: client_id,
+        AuthParameters: {
+          USERNAME: email,
+          PASSWORD: password
+        }
+      }
+      const response = await cognito.adminInitiateAuth(params).promise();
+      return sendResponse(200, {
+        message: 'Success',
+        token: response.AuthenticationResult.IdToken
+      })
 }
 
 

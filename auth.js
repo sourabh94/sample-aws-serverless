@@ -5,6 +5,7 @@
 
 const {
     CognitoIdentityProviderClient,
+    AdminInitiateAuthCommand,
     AddCustomAttributesCommand,
 } = require("@aws-sdk/client-cognito-identity-provider");
 
@@ -16,8 +17,8 @@ input={
 const cognito = new CognitoIdentityProviderClient({ region: "us-east-1" });
 
 const login = async () => {
-    const email = "patil.sourabh4991@gmail.com";
-    const password = "password";
+    const email = "19m529@gmail.com";
+    const password = "Sourabh1994@aws";
     const user_pool_id = "us-east-1_wNF9zKadm";
     const client_id = "76vm8i7d7fgu6noeunl7jkj2k9";
     
@@ -31,7 +32,7 @@ const login = async () => {
           PASSWORD: password
         }
       }
-      const response = await cognito.adminInitiateAuth(params).promise();
+      const response = await cognito.AdminInitiateAuthCommand(params).promise();
       return sendResponse(200, {
         message: 'Success',
         token: response.AuthenticationResult.IdToken

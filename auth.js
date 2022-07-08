@@ -26,7 +26,7 @@ const login = async () => {
       const params = {
         AuthFlow: "ADMIN_NO_SRP_AUTH",
         UserPoolId: user_pool_id,
-        ClientId: client_id,
+        clientId: client_id,
         AuthParameters: {
           USERNAME: email,
           PASSWORD: password

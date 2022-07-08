@@ -26,13 +26,13 @@ const login = async () => {
       const params = {
         AuthFlow: "ADMIN_NO_SRP_AUTH",
         UserPoolId: user_pool_id,
-        clientId: client_id,
+        ClientId: client_id,
         AuthParameters: {
           USERNAME: email,
           PASSWORD: password
         }
       }
-      const cmd = new AdminInitiateAuthCommand(input);
+      const cmd = new AdminInitiateAuthCommand(params);
       const response = await cognito.send(cmd);
       return sendResponse(200, {
         message: 'Success',

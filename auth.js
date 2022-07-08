@@ -34,10 +34,7 @@ const login = async () => {
       }
       const cmd = new AdminInitiateAuthCommand(params);
       const response = await cognito.send(cmd);
-      return sendResponse(200, {
-        message: 'Success',
-        token: response.AuthenticationResult.IdToken
-      })
+      return response;
 }
 
 

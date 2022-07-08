@@ -28,6 +28,7 @@ functions:
       - Effect: "Allow"
         Action:
           - "cognito:*"
+          - "cognito-idp:AdminInitiateAuth"
         Resource: "arn:aws:cognito-idp:us-east-1:282561886598:userpool/us-east-1_wNF9zKadm"
   getPost:
     handler: api.getPost

@@ -13,7 +13,7 @@ input={
 };
 
 
-const client = new CognitoIdentityProviderClient({ region: "us-east-1" });
+const cognito = new CognitoIdentityProviderClient({ region: "us-east-1" });
 
 const login = async () => {
     const email = "patil.sourabh4991@gmail.com";

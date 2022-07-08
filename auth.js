@@ -34,7 +34,13 @@ const login = async () => {
       }
       const cmd = new AdminInitiateAuthCommand(params);
       const response = await cognito.send(cmd);
-      return response;
+      const res = { statusCode: 200 };
+      res.body = JSON.stringify({
+        message: "Successfully retrieved post.",
+        data: response
+      });
+      console.log({ res });
+      return res;
 }
 
 

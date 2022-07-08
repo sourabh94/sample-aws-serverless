@@ -6,6 +6,7 @@
 const {
     CognitoIdentityProviderClient,
     AdminInitiateAuthCommand,
+    RespondToAuthChallengeCommand,
     AddCustomAttributesCommand,
 } = require("@aws-sdk/client-cognito-identity-provider");
 
@@ -34,6 +35,22 @@ const login = async () => {
       }
       const cmd = new AdminInitiateAuthCommand(params);
       const response = await cognito.send(cmd);
+      response.then(data=>{
+        if (data.challengeName === 'NEW_PASSWORD_REQUIRED'){
+            const input = {
+                ChallengeName: "NEW_PASSWORD_REQUIRED",
+                ClientId: client_id,
+                ChallengeResponses: {
+                    USERNAME: email,
+                    NEW_PASSWORD: "Sourabh1994@aws123"
+                },
+                Session: data.Session,
+            };
+            const command = new RespondToAuthChallengeCommand(input);
+            const res2 = await client.send(command);
+            return res2;
+        }
+      });
       const res = { statusCode: 200 };
       res.body = JSON.stringify({
         message: "Successfully retrieved post.",

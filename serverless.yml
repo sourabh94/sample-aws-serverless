@@ -15,6 +15,20 @@ plugins:
   - serverless-iam-roles-per-function
 
 functions:
+  login:
+    handler: auth.login
+    name: login
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events:
+      - http:
+          path: auth/login
+          method: GET
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "cognito:*"
+        Resource: "arn:aws:cognito-idp:us-east-1:282561886598:userpool/us-east-1_wNF9zKadm"
   getPost:
     handler: api.getPost
     name: get-post

@@ -1,7 +1,7 @@
 
 // Import required AWS SDK clients and command for Node.js
-import {S3Client} from "@aws-sdk/client-s3";
-import {fromCognitoIdentityPool} from "@aws-sdk/credential-providers";
+// import {S3Client} from "@aws-sdk/client-s3";
+// import {fromCognitoIdentityPool} from "@aws-sdk/credential-providers";
 
 const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 const CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;

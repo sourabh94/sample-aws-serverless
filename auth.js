@@ -29,8 +29,7 @@ const login = async () => {
         ClientId: client_id,
         AuthParameters: {
           USERNAME: email,
-          PASSWORD: password,
-          SECRET_HASH:"jll65m3c79qur8m4asjfrv6cfpib9gfut6rll874hjo8kg48ng"
+          PASSWORD: password
         }
       }
       const cmd = new AdminInitiateAuthCommand(params);

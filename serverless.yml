@@ -29,7 +29,7 @@ functions:
         Action:
           - "cognito:*"
           - "cognito-idp:AdminInitiateAuth"
-        Resource: "arn:aws:cognito-idp:us-east-1:282561886598:userpool/us-east-1_wNF9zKadm"
+        Resource: "arn:aws:cognito-idp:us-east-1:282561886598:userpool/us-east-1_YEay3R05U"
   getPost:
     handler: api.getPost
     name: get-post
